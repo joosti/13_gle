@@ -1,0 +1,58 @@
+
+include "graphutil.gle"
+
+
+
+size 8 8
+
+sub graph_hairlines
+   set lstyle 6 just lc
+  ! graph_vline f0
+ !  graph_text f0 15000 label "f_0" dx 0.1
+  set lstyle 4 color grey
+   graph_hline 0
+end sub
+
+sub graph_hairlines2
+ !  set lstyle 6 just lc
+  ! graph_vline f0
+ !  graph_text f0 15000 label "f_0" dx 0.1
+   set lstyle 4 color grey
+   graph_hline 1
+end sub
+
+
+set font texcmr
+
+ ! Graph at the upper left corner.
+amove 1.5 1.0
+begin graph
+   size 6 6
+   fullsize
+   
+   xtitle "Decile rank Growth"                                                          
+   ytitle "Tobin's q"
+   
+   xticks on
+   
+   data   "sas_exports/2_figure_q_by_ci_and_salesgr.dat"					   
+   d1 line smooth lstyle 1 key "Low contract-intensity"
+   d2 line smooth lstyle 3 key "High contract-intensity"
+   
+ !   xlabels off
+ !  x2labels on
+   yaxis max 4.5
+   yaxis min 1
+   
+     
+  key  pos tr
+!   under graph_hairlines
+end graph
+
+set just cc
+amove xg(xgmin)+0.6 yg(ygmax)-0.6 
+
+
+
+
+
