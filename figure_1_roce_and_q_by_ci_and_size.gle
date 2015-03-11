@@ -42,7 +42,7 @@ begin graph
    
  !   xlabels off
  !  x2labels on
-  ! yaxis max 0.7
+  yaxis max 0.12
    !yaxis min 1.2
    
      
@@ -52,7 +52,8 @@ end graph
 
 set just cc
 amove xg(xgmin)+0.6 yg(ygmax)-0.6 
-tex "(a)"
+!tex "(a)"
+text (a)
 
 
 
@@ -80,9 +81,10 @@ begin graph
          !yaxis max 2.8
    yaxis min 1.2
    
-   key  pos br
+   key  pos tr
   ! under graph_hairlines
 end graph
 
 amove xg(xgmin)+0.6 yg(ygmax)-0.6
-tex "(b)"
+!tex "(b)"
+text (b)

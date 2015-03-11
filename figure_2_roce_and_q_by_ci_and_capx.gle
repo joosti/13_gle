@@ -30,7 +30,7 @@ begin graph
    size 6 6
    fullsize
    
-   xtitle "Decile rank Growth"                                                          
+   xtitle "Decile rank growth"                                                          
    ytitle "Tobin's q"
    
    xticks on
@@ -45,7 +45,7 @@ begin graph
    yaxis min 1
    
      
-  key  pos tr
+  key  pos tl
 !   under graph_hairlines
 end graph
 

@@ -1,0 +1,10 @@
+tex {\tiny (a)}
+tex {\tiny \Large{A} }
+tex {\tiny $\partial \pi_1 /\partial\alpha > 0$ }
+tex {\tiny \Large{B} }
+tex {\tiny $\partial \pi_1 /\partial\alpha < 0$}
+tex {\tiny (b)}
+tex {\tiny $\partial \pi_1 /\partial\alpha > 0$   }
+tex {\tiny $\partial^2 \pi_1 /\partial\alpha\partial k > 0$   }
+tex {\tiny $\partial \pi_1 /\partial\alpha > 0$}
+tex {\tiny $\partial^2 \pi_1 /\partial\alpha\partial k < 0$   }
