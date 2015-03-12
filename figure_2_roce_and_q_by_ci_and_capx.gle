@@ -41,7 +41,7 @@ begin graph
    
  !   xlabels off
  !  x2labels on
-   yaxis max 4.5
+   yaxis max 4
    yaxis min 1
    
      
