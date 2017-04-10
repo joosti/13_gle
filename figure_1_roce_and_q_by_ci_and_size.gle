@@ -37,12 +37,13 @@ begin graph
    d1 line smooth lstyle 1 key "Low contract-intensity"
    d2 line smooth lstyle 3 key "High contract-intensity"
    
-   y2labels off
+   
    ylabels on
+ y2labels off
  
-   yaxis min 1.2
+   yaxis min 1.0
   
-   key  pos tr
+   key  pos bl
  
 end graph
 
@@ -61,6 +62,10 @@ begin graph
    xtitle "Decile rank lnSales"                                                          
    y2title "ROCE"
    
+      
+   ylabels off
+   y2labels on
+
    xticks on
    
    data   "sas_exports/1_figure_roce_by_ci_and_size.dat"
@@ -69,6 +74,7 @@ begin graph
    d2 line smooth lstyle 3 key "High contract-intensity"
    
   yaxis max 0.12
+
 
      key  pos br
 
