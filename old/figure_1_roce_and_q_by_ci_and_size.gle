@@ -1,4 +1,7 @@
+
 include "graphutil.gle"
+
+
 
 size 16 8
 
@@ -24,42 +27,11 @@ set font texcmr
  ! Graph at the upper left corner.
 amove 1.5 1.0
 begin graph
-
-   size 6 6
-   fullsize
-   xtitle "Decile rank lnSales"                                                              
-   ytitle "Tobin's q"
-    
-   xticks on
-   
-   data   "sas_exports/1_figure_q_by_ci_and_size.dat"
-    
-   d1 line smooth lstyle 1 key "Low contract-intensity"
-   d2 line smooth lstyle 3 key "High contract-intensity"
-   
-   y2labels off
-   ylabels on
- 
-   yaxis min 1.2
-  
-   key  pos tr
- 
-end graph
-
-set just cc
-amove xg(xgmin)+0.6 yg(ygmax)-0.6 
-!tex "(a)"
-text (a)
-
-
-amove 8.25 1.0
-begin graph
-
    size 6 6
    fullsize
    
    xtitle "Decile rank lnSales"                                                          
-   y2title "ROCE"
+   ytitle "ROCE"
    
    xticks on
    
@@ -68,10 +40,49 @@ begin graph
    d1 line smooth lstyle 1 key "Low contract-intensity"
    d2 line smooth lstyle 3 key "High contract-intensity"
    
+ !   xlabels off
+ !  x2labels on
   yaxis max 0.12
+   !yaxis min 1.2
+   
+     
+  key  pos br
+!   under graph_hairlines
+end graph
 
-     key  pos br
+set just cc
+amove xg(xgmin)+0.6 yg(ygmax)-0.6 
+!tex "(a)"
+text (a)
 
+
+
+
+amove 8.25 1.0
+begin graph
+   size 6 6
+   fullsize
+   xtitle "Decile rank lnSales"                                                              
+   y2title "Tobin's q"
+    !ytitle "Excess value (EV2S^{BO})"
+   xticks on
+   
+       data   "sas_exports/1_figure_q_by_ci_and_size.dat"
+  
+   
+  d1 line smooth lstyle 1 key "Low contract-intensity"
+   d2 line smooth lstyle 3 key "High contract-intensity"
+   
+   ylabels off
+   y2labels on
+   
+  !      xlabels off
+  ! x2labels on
+         !yaxis max 2.8
+   yaxis min 1.2
+   
+   key  pos tr
+  ! under graph_hairlines
 end graph
 
 amove xg(xgmin)+0.6 yg(ygmax)-0.6

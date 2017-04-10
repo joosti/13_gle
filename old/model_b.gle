@@ -1,0 +1,66 @@
+
+include "graphutil.gle"
+
+
+
+size 8 8
+
+sub graph_hairlines
+   set lstyle 6 just lc
+  ! graph_vline f0
+ !  graph_text f0 15000 label "f_0" dx 0.1
+  set lstyle 4 color grey
+   graph_hline 0
+end sub
+
+sub graph_hairlines2
+ !  set lstyle 6 just lc
+  ! graph_vline f0
+ !  graph_text f0 15000 label "f_0" dx 0.1
+   set lstyle 4 color grey
+   graph_hline 1
+end sub
+
+       
+sub relspec x
+	return ((0.9375*x)/(1-(x/4)))*0.5*(4-(3*x))
+!    return 0.7 - (0.7/0.49)*(x-0.7)^2 
+
+end sub
+
+set font texcmr
+
+ ! Graph at the upper left corner.
+amove 1.5 1.0
+begin graph
+   size 6 6
+   fullsize
+   
+  
+   xtitle "Relationship-specificity "                                                          
+   !ytitle "\partial\pi_1 / \partial\alpha"
+   ytitle "Marginal benefits"
+   
+   xticks on
+   let d1 = relspec(x) from 0 to 1
+   d1 line !color red
+   
+ !   xlabels off
+ !  x2labels on
+   yaxis max 1.0
+   yaxis min 0.0
+  xaxis max 1.0
+   xaxis min 0.0
+   
+     
+  key  pos tr
+!   under graph_hairlines
+end graph
+
+set just cc
+amove xg(xgmin)+0.6 yg(ygmax)-0.6 
+
+
+
+
+

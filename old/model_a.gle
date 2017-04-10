@@ -1,0 +1,136 @@
+
+include "graphutil.gle"
+
+! cd c:\Program Files (x86)\Gle4\bin
+! gle -d pdf P:\research\projects\13_complexity\gle\model_a.gle
+
+size 16 8
+
+sub graph_hairlines
+   set lstyle 6 just lc
+  ! graph_vline f0
+ !  graph_text f0 15000 label "f_0" dx 0.1
+  set lstyle 4 color grey
+   graph_hline 0
+end sub
+
+sub graph_hairlines2
+ !  set lstyle 6 just lc
+  ! graph_vline f0
+ !  graph_text f0 15000 label "f_0" dx 0.1
+   set lstyle 4 color grey
+   graph_hline 1
+end sub
+
+
+set font texcmr
+
+
+sub entropy x
+    return 1 - (x - 0.5) / x
+end sub
+
+sub relspec2 x
+	return (1+x-(6*x-3*x^2-1)^(0.5))/(2*x^2-2*x+1)
+!    return 1 - (x - 0.3) / (1.75*x) 
+end sub
+
+ ! Graph at the upper left corner.
+amove 1.5 1.0
+begin graph
+   size 6 6
+   fullsize
+ !  scale  auto
+
+   
+   xtitle "Buyer's bargaining power"                                                          
+  ! ytitle "Seller's relationship-specificity k_2 = 1 - \mu_2 / \lambda_2    "
+   ytitle "Relationship-specificity "
+   
+   xticks on
+   let d1 = entropy(x) from 0.5 to 1
+   d1 line !color red
+   
+ !   xlabels off
+ !  x2labels on
+   yaxis max 1.0
+   yaxis min 0.0
+  xaxis max 1.0
+   xaxis min 0.0
+   
+     
+  key  pos br
+!   under graph_hairlines
+end graph
+
+set just cc
+amove xg(xgmin)+0.6 yg(ygmax)-0.6 
+tex "(a)"
+
+amove xg(xgmin)+3 yg(ygmax)-3 
+ tex "\Large{A} "
+ 
+amove xg(xgmin)+3 yg(ygmax)-3.5
+ tex "$\partial \pi_1 /\partial\alpha > 0$ " 
+
+amove xg(xgmin)+4.85 yg(ygmax)-0.5 
+ tex "\Large{B} "
+ 
+amove xg(xgmin)+4.85 yg(ygmax)-1.0
+ tex "$\partial \pi_1 /\partial\alpha < 0$" 
+
+
+ 
+amove 8.25 1.0
+begin graph
+   size 6 6
+   fullsize
+   xtitle "Buyer's bargaining power"                                                          
+  ! y2title "Seller's relationship-specificity k_2 = 1 - \mu / \lambda    "
+   y2title "Relationship-specificity "
+  
+  
+   xticks on
+   let d1 = relspec2(x) from 0.3 to 1
+   d1 line !color red
+   
+   
+   ylabels off
+   y2labels on
+   
+  !      xlabels off
+  ! x2labels on
+     yaxis max 1.0
+   yaxis min 0.0
+  xaxis max 1.0
+   xaxis min 0.0
+   
+   key  pos br
+  ! under graph_hairlines
+end graph
+
+amove xg(xgmin)+0.6 yg(ygmax)-0.6
+tex "(b)"
+
+
+amove xg(xgmin)+3 yg(ygmax)-3 
+ tex "\Large{A} "
+ 
+amove xg(xgmin)+3 yg(ygmax)-3.5
+ tex "$\partial \pi_1 /\partial\alpha > 0$   " 
+ 
+amove xg(xgmin)+3 yg(ygmax)-4
+ tex "$\partial^2 \pi_1 /\partial\alpha\partial k > 0$   " 
+
+
+amove xg(xgmin)+4.7 yg(ygmax)-0.5 
+ tex "\Large{B} "
+ 
+amove xg(xgmin)+4.7 yg(ygmax)-1.0
+ tex "$\partial \pi_1 /\partial\alpha > 0$" 
+
+ amove xg(xgmin)+4.7 yg(ygmax)-1.5
+ tex "$\partial^2 \pi_1 /\partial\alpha\partial k < 0$   " 
+
+
+
